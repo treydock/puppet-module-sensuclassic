@@ -4,7 +4,7 @@
 # any Sensu services to restart them when using this defined resource type.
 #
 # @example
-#  sensu::write_json { '/etc/sensu/conf.d/check.json':
+#  sensuclassic::write_json { '/etc/sensu/conf.d/check.json':
 #    content => {"config" => {"key" => "value"}},
 #    notify  => [
 #      Service['sensu-client'],
@@ -22,20 +22,18 @@
 #
 # @param pretty Write the json with "pretty" indenting & formating.
 #
-# @param content The hash content that will be converted to json
-#   and written into the target config file.
+# @param content The hash content that will be converted to json and written
+#   into the target config file.
 #
-# [*notify_list*]
-#   Array. A listing of resources to notify upon changes to the target JSON
-#          file.
-#   Default: []
-define sensu::write_json (
+# @param notify_list
+#   Array of resources to notify upon changes to the target JSON file.
+define sensuclassic::write_json (
   Enum['present', 'absent'] $ensure = 'present',
-  String                    $owner = 'sensu',
-  String                    $group = 'sensu',
-  Stdlib::Filemode          $mode = '0775',
-  Boolean                   $pretty = true,
-  Hash                      $content = {},
+  String $owner = 'sensu',
+  String $group = 'sensu',
+  Stdlib::Filemode $mode = '0775',
+  Boolean $pretty = true,
+  Hash $content = {},
   Array[Variant[Data,Type]] $notify_list = [],
 ) {
 
@@ -50,13 +48,13 @@ define sensu::write_json (
   }
 
   # Write the config file, using the native file resource and the
-  # sensu_sorted_json function to format/sort the json.
+  # sensuclassic_sorted_json function to format/sort the json.
   file { $title :
     ensure  => $ensure,
     owner   => $owner,
     group   => $group,
     mode    => $mode,
-    content => sensu_sorted_json($content, $pretty),
+    content => sensuclassic_sorted_json($content, $pretty),
     notify  => $notify_list,
   }
 }

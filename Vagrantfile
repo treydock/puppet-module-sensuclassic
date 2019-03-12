@@ -9,7 +9,7 @@
 # server instances simultaneously, avoid the IP conflict by setting the
 # ALTERNATE_IP environment variable:
 #
-#     ALTERNATE_IP=192.168.56.9 vagrant up sensu-server-enterprise
+#     ALTERNATE_IP=192.168.156.9 vagrant up sensu-server-enterprise
 #
 # NOTE: The client VM instances assume the server VM is accessible on the
 # default IP address, therefore using an ALTERNATE_IP is not expected to behave
@@ -28,6 +28,16 @@ To install the plugin, please run, 'vagrant plugin install vagrant-vbguest'.
   EOM
 end
 
+if not Vagrant.has_plugin?('vagrant-reload')
+  abort <<-EOM
+
+vagrant plugin vagrant-reload is required.
+https://github.com/aidanns/vagrant-reload
+To install the plugin, please run, 'vagrant plugin install vagrant-reload'.
+
+  EOM
+end
+
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
@@ -42,40 +52,40 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define "sensu-server", primary: true, autostart: true do |server|
     server.vm.box = "centos/7"
     server.vm.hostname = 'sensu-server.example.com'
-    server.vm.network :private_network, ip: ENV['ALTERNATE_IP'] || '192.168.56.10'
+    server.vm.network :private_network, ip: ENV['ALTERNATE_IP'] || '192.168.156.10'
     server.vm.network :forwarded_port, guest: 4567, host: 4567, auto_correct: true
     server.vm.network :forwarded_port, guest: 3000, host: 3000, auto_correct: true
     server.vm.network :forwarded_port, guest: 15672, host: 15672, auto_correct: true
     server.vm.provision :shell, :path => "tests/provision_basic_el.sh"
     server.vm.provision :shell, :path => "tests/provision_server.sh"
     server.vm.provision :shell, :path => "tests/rabbitmq.sh"
-    server.vm.provision :shell, :inline => "facter --custom-dir=/vagrant/lib/facter sensu_version"
+    server.vm.provision :shell, :inline => "facter --custom-dir=/vagrant/lib/facter sensuclassic_version"
   end
 
   config.vm.define 'sensu-server-cluster', autostart: false do |server|
     server.vm.box = 'centos/7'
     server.vm.hostname = 'sensu-server.example.com'
-    server.vm.network :private_network, ip: ENV['ALTERNATE_IP'] || '192.168.56.10'
+    server.vm.network :private_network, ip: ENV['ALTERNATE_IP'] || '192.168.156.10'
     server.vm.network :forwarded_port, guest: 4567, host: 4567, auto_correct: true
     server.vm.network :forwarded_port, guest: 3000, host: 3000, auto_correct: true
     server.vm.network :forwarded_port, guest: 15672, host: 15672, auto_correct: true
     server.vm.provision :shell, :path => "tests/provision_basic_el.sh"
     server.vm.provision :shell, :path => "tests/provision_server_cluster.sh"
     server.vm.provision :shell, :path => "tests/rabbitmq.sh"
-    server.vm.provision :shell, :inline => "facter --custom-dir=/vagrant/lib/facter sensu_version"
+    server.vm.provision :shell, :inline => "facter --custom-dir=/vagrant/lib/facter sensuclassic_version"
   end
 
   config.vm.define "sensu-server-puppet6", primary: true, autostart: true do |server|
     server.vm.box = "centos/7"
     server.vm.hostname = 'sensu-server.example.com'
-    server.vm.network :private_network, ip: ENV['ALTERNATE_IP'] || '192.168.56.10'
+    server.vm.network :private_network, ip: ENV['ALTERNATE_IP'] || '192.168.156.10'
     server.vm.network :forwarded_port, guest: 4567, host: 4567, auto_correct: true
     server.vm.network :forwarded_port, guest: 3000, host: 3000, auto_correct: true
     server.vm.network :forwarded_port, guest: 15672, host: 15672, auto_correct: true
     server.vm.provision :shell, :path => "tests/provision_basic_el_puppet6.sh"
     server.vm.provision :shell, :path => "tests/provision_server.sh"
     server.vm.provision :shell, :path => "tests/rabbitmq.sh"
-    server.vm.provision :shell, :inline => "facter --custom-dir=/vagrant/lib/facter sensu_version"
+    server.vm.provision :shell, :inline => "facter --custom-dir=/vagrant/lib/facter sensuclassic_version"
   end
 
   # sensu-server-enterprise is meant to be started without 'sensu-server'
@@ -90,7 +100,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
     server.vm.box = 'centos/7'
     server.vm.hostname = 'sensu-server.example.com'
-    server.vm.network :private_network, ip: ENV['ALTERNATE_IP'] || '192.168.56.10'
+    server.vm.network :private_network, ip: ENV['ALTERNATE_IP'] || '192.168.156.10'
     server.vm.network :forwarded_port, guest: 4567, host: 4567, auto_correct: true
     server.vm.network :forwarded_port, guest: 4568, host: 4568, auto_correct: true
     server.vm.network :forwarded_port, guest: 15672, host: 15672, auto_correct: true
@@ -102,52 +112,52 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         'FACTER_SE_PASS' => ENV['FACTER_SE_PASS'].to_s,
       }
     server.vm.provision :shell, :path => 'tests/rabbitmq.sh'
-    server.vm.provision :shell, :inline => "facter --custom-dir=/vagrant/lib/facter sensu_version"
+    server.vm.provision :shell, :inline => "facter --custom-dir=/vagrant/lib/facter sensuclassic_version"
   end
 
   config.vm.define "el7-client", autostart: true do |client|
     client.vm.box = "centos/7"
     client.vm.hostname = 'el7-client.example.com'
-    client.vm.network  :private_network, ip: "192.168.56.11"
+    client.vm.network  :private_network, ip: "192.168.156.11"
     client.vm.provision :shell, :path => "tests/provision_basic_el.sh"
     client.vm.provision :shell, :inline => "puppet apply /vagrant/tests/sensu-client.pp"
-    client.vm.provision :shell, :inline => "facter --custom-dir=/vagrant/lib/facter sensu_version"
+    client.vm.provision :shell, :inline => "facter --custom-dir=/vagrant/lib/facter sensuclassic_version"
   end
 
   config.vm.define "el6-client", autostart: false do |client|
     client.vm.box = "centos/6"
     client.vm.hostname = 'el6-client.example.com'
-    client.vm.network  :private_network, ip: "192.168.56.12"
+    client.vm.network  :private_network, ip: "192.168.156.12"
     client.vm.provision :shell, :path => "tests/provision_basic_el.sh"
     client.vm.provision :shell, :inline => "puppet apply /vagrant/tests/sensu-client-sensu_gem.pp"
-    client.vm.provision :shell, :inline => "facter --custom-dir=/vagrant/lib/facter sensu_version"
+    client.vm.provision :shell, :inline => "facter --custom-dir=/vagrant/lib/facter sensuclassic_version"
   end
 
   config.vm.define "ubuntu1804-client", autostart: false do |client|
     client.vm.box = "ubuntu/bionic64"
     client.vm.hostname = 'ubuntu1804-client.example.com'
-    client.vm.network  :private_network, ip: "192.168.56.18"
+    client.vm.network  :private_network, ip: "192.168.156.18"
     client.vm.provision :shell, :path => "tests/provision_basic_debian.sh"
     client.vm.provision :shell, :inline => "puppet apply /vagrant/tests/sensu-client.pp"
-    client.vm.provision :shell, :inline => "facter --custom-dir=/vagrant/lib/facter sensu_version"
+    client.vm.provision :shell, :inline => "facter --custom-dir=/vagrant/lib/facter sensuclassic_version"
   end
 
   config.vm.define "ubuntu1604-client", autostart: false do |client|
     client.vm.box = "ubuntu/xenial64"
     client.vm.hostname = 'ubuntu1604-client.example.com'
-    client.vm.network  :private_network, ip: "192.168.56.13"
+    client.vm.network  :private_network, ip: "192.168.156.13"
     client.vm.provision :shell, :path => "tests/provision_basic_debian.sh"
     client.vm.provision :shell, :inline => "puppet apply /vagrant/tests/sensu-client.pp"
-    client.vm.provision :shell, :inline => "facter --custom-dir=/vagrant/lib/facter sensu_version"
+    client.vm.provision :shell, :inline => "facter --custom-dir=/vagrant/lib/facter sensuclassic_version"
   end
 
   config.vm.define "ubuntu1404-client", autostart: false do |client|
     client.vm.box = "ubuntu/trusty64"
     client.vm.hostname = 'ubuntu1404-client.example.com'
-    client.vm.network  :private_network, ip: "192.168.56.14"
+    client.vm.network  :private_network, ip: "192.168.156.14"
     client.vm.provision :shell, :path => "tests/provision_basic_debian.sh"
     client.vm.provision :shell, :inline => "puppet apply /vagrant/tests/sensu-client-sensu_gem.pp"
-    client.vm.provision :shell, :inline => "facter --custom-dir=/vagrant/lib/facter sensu_version"
+    client.vm.provision :shell, :inline => "facter --custom-dir=/vagrant/lib/facter sensuclassic_version"
   end
 
   config.vm.define "win2012r2-client", autostart: false do |client|
@@ -157,7 +167,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       vb.customize ["modifyvm", :id, "--cpus", "1"]
     end
     client.vm.hostname = 'win2012r2-client'
-    client.vm.network  :private_network, ip: "192.168.56.15"
+    client.vm.network  :private_network, ip: "192.168.156.15"
     client.vm.network "forwarded_port", host: 3389, guest: 3389, auto_correct: true
     # There are two basic power shell scripts.  The first installs Puppet, but
     # puppet is not in the PATH.  The second invokes a new shell which will have
@@ -171,25 +181,25 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     client.vm.provision :shell, :path => "tests/provision_basic_win.2.ps1"
     ## Install Sensu using the default Windows package provider (MSI)
     client.vm.provision :shell, :inline => 'iex "puppet apply -v C:/vagrant/tests/sensu-client-windows.pp"'
-    client.vm.provision :shell, :inline => 'iex "facter --custom-dir=C:/vagrant/lib/facter sensu_version"'
+    client.vm.provision :shell, :inline => 'iex "facter --custom-dir=C:/vagrant/lib/facter sensuclassic_version"'
   end
 
   config.vm.define "debian9-client", autostart: false do |client|
     client.vm.box = "debian/stretch64"
     client.vm.hostname = 'debian9-client.example.com'
-    client.vm.network  :private_network, ip: "192.168.56.20"
+    client.vm.network  :private_network, ip: "192.168.156.20"
     client.vm.provision :shell, :path => "tests/provision_basic_debian.sh"
     client.vm.provision :shell, :inline => "puppet apply /vagrant/tests/sensu-client.pp"
-    client.vm.provision :shell, :inline => "facter --custom-dir=/vagrant/lib/facter sensu_version"
+    client.vm.provision :shell, :inline => "facter --custom-dir=/vagrant/lib/facter sensuclassic_version"
   end
 
   config.vm.define "debian8-client", autostart: false do |client|
     client.vm.box = "debian/jessie64"
     client.vm.hostname = 'debian8-client.example.com'
-    client.vm.network  :private_network, ip: "192.168.56.17"
+    client.vm.network  :private_network, ip: "192.168.156.17"
     client.vm.provision :shell, :path => "tests/provision_basic_debian.sh"
     client.vm.provision :shell, :inline => "puppet apply /vagrant/tests/sensu-client.pp"
-    client.vm.provision :shell, :inline => "facter --custom-dir=/vagrant/lib/facter sensu_version"
+    client.vm.provision :shell, :inline => "facter --custom-dir=/vagrant/lib/facter sensuclassic_version"
   end
 
   # The rsync used to populate /vagrant will fail if the repo has the spec
@@ -200,11 +210,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       vb.customize ["modifyvm", :id, "--memory", "1024"]
     end
     client.vm.hostname = 'macos-client.example.com'
-    client.vm.network  :private_network, ip: "192.168.56.19"
-    client.vm.synced_folder ".", "/vagrant", type: "rsync", group: "wheel"
+    client.vm.network  :private_network, ip: "192.168.156.19"
+    client.vm.synced_folder ".", "/vagrant", type: "rsync", group: "wheel",
+      rsync__exclude: ['.git/', 'spec/']
     client.vm.provision :shell, :path => "tests/provision_macos.sh"
     client.vm.provision :shell, :inline => "/opt/puppetlabs/puppet/bin/puppet apply /vagrant/tests/sensu-client.pp"
-    client.vm.provision :shell, :inline => "/opt/puppetlabs/puppet/bin/facter --custom-dir=/vagrant/lib/facter sensu_version"
+    client.vm.provision :shell, :inline => "/opt/puppetlabs/puppet/bin/facter --custom-dir=/vagrant/lib/facter sensuclassic_version"
     client.vm.provider "virtualbox" do |vb|
       vb.customize ["modifyvm", :id, "--usb", "on"]
       vb.customize ["modifyvm", :id, "--usbehci", "off"]
