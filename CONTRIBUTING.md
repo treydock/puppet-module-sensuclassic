@@ -33,17 +33,13 @@ This module supports Sensu v1
 
 ### master
 
-The `master` branch is for development against Sensu v1.
-
-To generate the `CHANGELOG.md` run the following.
-
-`github_changelog_generator -u sensu -p puppet-module-sensuclassic`
+The `master` branch is for development against Sensu Classic.
 
 # Release process
 
-1. update version in `metadata.json`
-1. run `github_changelog_generator`, such as
-   `github_changelog_generator -u sensu -p puppet-module-sensuclassic`
+1. Update version in `metadata.json`
+1. Update CHANGELOG.md by running the following command.
+   `github_changelog_generator -u sensu -p puppet-module-sensuclassic --exclude-labels skip-changelog`
 1. update `CHANGELOG.md` and change `unreleased` at the top to the
    version, such as `v2.0.0`, and change `HEAD` to the same version,
    such as `v2.0.0`.
