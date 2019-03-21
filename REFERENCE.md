@@ -5,70 +5,70 @@
 
 **Classes**
 
-* [`sensu`](#sensu): Base Sensu class
-* [`sensu::api`](#sensuapi): = Class: sensu::api  Manages the Sensu api  == Parameters  [*hasrestart*]   Boolean. Value of hasrestart attribute for this service.   Defaul
-* [`sensu::client`](#sensuclient): Manages the Sensu client service
-* [`sensu::enterprise`](#sensuenterprise): Installs the Sensu packages
-* [`sensu::enterprise::dashboard`](#sensuenterprisedashboard): Installs the Sensu Enterprise Dashboard
-* [`sensu::package`](#sensupackage): Installs Sensu packages
-* [`sensu::rabbitmq::config`](#sensurabbitmqconfig): Sets the Sensu rabbitmq config
-* [`sensu::redis::config`](#sensuredisconfig): Sets the Sensu redis config
-* [`sensu::repo::apt`](#sensurepoapt): Adds the Sensu repo to Apt
-* [`sensu::repo::yum`](#sensurepoyum): Adds the Sensu YUM repo support
-* [`sensu::server::service`](#sensuserverservice): Manages the Sensu server service
-* [`sensu::transport`](#sensutransport): Configures Sensu transport
+* [`sensuclassic`](#sensuclassic): Base Sensu class
+* [`sensuclassic::api`](#sensuclassicapi): Manages the Sensu API
+* [`sensuclassic::client`](#sensuclassicclient): Manages the Sensu client service
+* [`sensuclassic::enterprise`](#sensuclassicenterprise): Installs the Sensu packages
+* [`sensuclassic::enterprise::dashboard`](#sensuclassicenterprisedashboard): Installs the Sensu Enterprise Dashboard
+* [`sensuclassic::package`](#sensuclassicpackage): Installs Sensu packages
+* [`sensuclassic::rabbitmq::config`](#sensuclassicrabbitmqconfig): Sets the Sensu rabbitmq config
+* [`sensuclassic::redis::config`](#sensuclassicredisconfig): Sets the Sensu redis config
+* [`sensuclassic::repo::apt`](#sensuclassicrepoapt): Adds the Sensu repo to Apt
+* [`sensuclassic::repo::yum`](#sensuclassicrepoyum): Adds the Sensu YUM repo support
+* [`sensuclassic::server::service`](#sensuclassicserverservice): Manages the Sensu server service
+* [`sensuclassic::transport`](#sensuclassictransport): Configures Sensu transport
 
 **Defined types**
 
-* [`sensu::check`](#sensucheck): Creates Sensu checks
-* [`sensu::config`](#sensuconfig): Defines Sensu check configurations
-* [`sensu::contact`](#sensucontact): Manages contact routing
-* [`sensu::enterprise::dashboard::api`](#sensuenterprisedashboardapi): Manages the Sensu Enterprise API configuration
-* [`sensu::extension`](#sensuextension): Defines Sensu extensions
-* [`sensu::filter`](#sensufilter): Manages Sensu filters
-* [`sensu::handler`](#sensuhandler): sensu::handler
-* [`sensu::mutator`](#sensumutator): Manages sensu mutators
-* [`sensu::plugin`](#sensuplugin): Installs Sensu plugins
-* [`sensu::plugins_dir`](#sensuplugins_dir): Verifies if install_dir exists without duplicate declarations
-* [`sensu::subscription`](#sensusubscription): Manages Sensu subscriptions
-* [`sensu::write_json`](#sensuwrite_json): Writes arbitrary hash data to a config file.
+* [`sensuclassic::check`](#sensuclassiccheck): Creates Sensu checks
+* [`sensuclassic::config`](#sensuclassicconfig): Defines Sensu check configurations
+* [`sensuclassic::contact`](#sensuclassiccontact): Manages contact routing
+* [`sensuclassic::enterprise::dashboard::api`](#sensuclassicenterprisedashboardapi): Manages the Sensu Enterprise API configuration
+* [`sensuclassic::extension`](#sensuclassicextension): Defines Sensu extensions
+* [`sensuclassic::filter`](#sensuclassicfilter): Manages Sensu filters
+* [`sensuclassic::handler`](#sensuclassichandler): sensuclassic::handler
+* [`sensuclassic::mutator`](#sensuclassicmutator): Manages sensu mutators
+* [`sensuclassic::plugin`](#sensuclassicplugin): Installs Sensu plugins
+* [`sensuclassic::plugins_dir`](#sensuclassicplugins_dir): Verifies if install_dir exists without duplicate declarations
+* [`sensuclassic::subscription`](#sensuclassicsubscription): Manages Sensu subscriptions
+* [`sensuclassic::write_json`](#sensuclassicwrite_json): Writes arbitrary hash data to a config file.
 
 **Resource types**
 
-* [`sensu_api_config`](#sensu_api_config): Manages Sensu API config
-* [`sensu_check`](#sensu_check): Manages Sensu checks
-* [`sensu_check_config`](#sensu_check_config): ""
-* [`sensu_client_config`](#sensu_client_config): Manages Sensu client config
-* [`sensu_client_subscription`](#sensu_client_subscription): Manages Sensu client subscriptions
-* [`sensu_contact`](#sensu_contact): Manages Sensu contacts
-* [`sensu_enterprise_dashboard_api_config`](#sensu_enterprise_dashboard_api_config): Manages Sensu Enterprise Dashboard API config
-* [`sensu_enterprise_dashboard_config`](#sensu_enterprise_dashboard_config): Manages Sensu Enterprise Dashboard config
-* [`sensu_extension`](#sensu_extension): Manages Sensu extensions
-* [`sensu_filter`](#sensu_filter): Manages Sensu filters
-* [`sensu_handler`](#sensu_handler): Manages Sensu handlers
-* [`sensu_mutator`](#sensu_mutator): Manages Sensu mutators
-* [`sensu_rabbitmq_config`](#sensu_rabbitmq_config): Manages Sensu RabbitMQ config
-* [`sensu_redis_config`](#sensu_redis_config): Manages Sensu Redis config
+* [`sensuclassic_api_config`](#sensuclassic_api_config): Manages Sensu API config
+* [`sensuclassic_check`](#sensuclassic_check): Manages Sensu checks
+* [`sensuclassic_check_config`](#sensuclassic_check_config): ""
+* [`sensuclassic_client_config`](#sensuclassic_client_config): Manages Sensu client config
+* [`sensuclassic_client_subscription`](#sensuclassic_client_subscription): Manages Sensu client subscriptions
+* [`sensuclassic_contact`](#sensuclassic_contact): Manages Sensu contacts
+* [`sensuclassic_enterprise_dashboard_api_config`](#sensuclassic_enterprise_dashboard_api_config): Manages Sensu Enterprise Dashboard API config
+* [`sensuclassic_enterprise_dashboard_config`](#sensuclassic_enterprise_dashboard_config): Manages Sensu Enterprise Dashboard config
+* [`sensuclassic_extension`](#sensuclassic_extension): Manages Sensu extensions
+* [`sensuclassic_filter`](#sensuclassic_filter): Manages Sensu filters
+* [`sensuclassic_handler`](#sensuclassic_handler): Manages Sensu handlers
+* [`sensuclassic_mutator`](#sensuclassic_mutator): Manages Sensu mutators
+* [`sensuclassic_rabbitmq_config`](#sensuclassic_rabbitmq_config): Manages Sensu RabbitMQ config
+* [`sensuclassic_redis_config`](#sensuclassic_redis_config): Manages Sensu Redis config
 
 **Functions**
 
-* [`sensu_sorted_json`](#sensu_sorted_json): This function takes unsorted hash and outputs JSON object making sure the keys are sorted. Optionally you can pass a boolean as the second pa
+* [`sensuclassic_sorted_json`](#sensuclassic_sorted_json): This function takes unsorted hash and outputs JSON object making sure the keys are sorted. Optionally you can pass a boolean as the second pa
 
 ## Classes
 
-### sensu
+### sensuclassic
 
 This is the main Sensu class
 
 #### Parameters
 
-The following parameters are available in the `sensu` class.
+The following parameters are available in the `sensuclassic` class.
 
 ##### `version`
 
 Data type: `Pattern[/^absent$/, /^installed$/, /^latest$/, /^present$/, /^[\d\.\-el]+$/]`
 
-Version of sensu to install.  Defaults to `installed` to support
+Version of sensu to install. Defaults to `installed` to support
 Windows MSI packaging and to avoid surprising upgrades.
 
 Default value: 'installed'
@@ -95,8 +95,8 @@ Default value: 'sensu-plugin'
 
 Data type: `Optional[String]`
 
-String.  Provider used to install the sensu-plugin package. Refers to the
-sensu-plugin rubygem, not the sensu-plugins community scripts.  On windows,
+String. Provider used to install the sensu-plugin package. Refers to the
+sensu-plugin rubygem, not the sensu-plugins community scripts. On windows,
 defaults to `gem`, all other platforms defaults to `undef`
 
 Default value: $::osfamily
@@ -154,7 +154,7 @@ Default value: 'main'
 
 Data type: `Optional[String]`
 
-Location of the yum/apt repo.  Overrides the default location
+Location of the yum/apt repo. Overrides the default location
 
 Default value: `undef`
 
@@ -189,10 +189,10 @@ Default value: `undef`
 Data type: `Variant[Undef,Integer,Pattern[/^(\d+)$/]]`
 
 Tune concurrency of the sensu-server pipe handler and the
-sensu-client check execution.  This setting should not need to be tuned
+sensu-client check execution. This setting should not need to be tuned
 except in specific situations, e.g. when there are a large number of JIT
-clients.  See [#727](https://github.com/sensu/sensu-puppet/issues/727) for
-more information.  The default is undefined, which does not manage
+clients. See [#727](https://github.com/sensu/sensu-puppet/issues/727) for
+more information. The default is undefined, which does not manage
 `/etc/sensu/conf.d/spawn.json`
 
 Default value: `undef`
@@ -278,7 +278,7 @@ Default value: `true`
 Data type: `Boolean`
 
 Manage the sensu plugins directory. Must be false if you use
-sensu::plugin with type 'directory'.
+sensuclassic::plugin with type 'directory'.
 
 Default value: `true`
 
@@ -378,8 +378,8 @@ Default value: `undef`
 
 Data type: `Optional[Boolean]`
 
-Use SSL transport to connect to RabbitMQ.  If rabbitmq_ssl_private_key and/or
-rabbitmq_ssl_cert_chain are set, then this is enabled automatically.  Set rabbitmq_ssl => true
+Use SSL transport to connect to RabbitMQ. If rabbitmq_ssl_private_key and/or
+rabbitmq_ssl_cert_chain are set, then this is enabled automatically. Set rabbitmq_ssl => true
 without specifying a private key or cert chain to use SSL transport, but not cert auth.
 
 Default value: `undef`
@@ -389,8 +389,8 @@ Default value: `undef`
 Data type: `Optional[String]`
 
 Private key to be used by sensu to connect to rabbitmq. If the value starts with
-'puppet://' the file will be copied and used.  Also the key itself can be given as the
-parameter value, or a variable, or using hiera.  Absolute paths will just be used as
+'puppet://' the file will be copied and used. Also the key itself can be given as the
+parameter value, or a variable, or using hiera. Absolute paths will just be used as
 a file reference, as you'd normally configure sensu.
 
 Default value: `undef`
@@ -400,7 +400,7 @@ Default value: `undef`
 Data type: `Optional[String]`
 
 Private SSL cert chain to be used by sensu to connect to rabbitmq
-If the value starts with 'puppet://' the file will be copied and used.   Also the key itself can
+If the value starts with 'puppet://' the file will be copied and used.  Also the key itself can
 be given as the parameter value, or a variable, or using hiera. Absolute paths will just be used
 as a file reference, as you'd normally configure sensu.
 
@@ -777,9 +777,9 @@ Default value: `false`
 Data type: `Boolean`
 
 If the embedded ruby should be used, e.g. to install the
-sensu-plugin gem.  This value is overridden by a defined
-sensu_plugin_provider.  Note, the embedded ruby should always be used to
-provide full compatibility.  Using other ruby runtimes, e.g. the system
+sensu-plugin gem. This value is overridden by a defined
+sensu_plugin_provider. Note, the embedded ruby should always be used to
+provide full compatibility. Using other ruby runtimes, e.g. the system
 ruby, is not recommended.
 
 Default value: `true`
@@ -829,7 +829,7 @@ Default value: 10
 Data type: `Optional[Any]`
 
 Optional configuration to use for the installation of the
-sensu plugin gem with sensu_gem provider.
+sensu plugin gem with sensuclassic_gem provider.
 See: https://docs.puppetlabs.com/references/latest/type.html#package-attribute-install_options
 Example value: [{ '-p' => 'http://user:pass@myproxy.company.org:8080' }]
 
@@ -916,7 +916,7 @@ Default value: `undef`
 
 Data type: `Hash`
 
-Hash of handlers for use with create_resources(sensu::handler).
+Hash of handlers for use with create_resources(sensuclassic::handler).
 Example value: { 'email' => { 'type' => 'pipe', 'command' => 'mail' } }
 
 Default value: {}
@@ -934,7 +934,7 @@ Default value: {}
 
 Data type: `Hash`
 
-Hash of checks for use with create_resources(sensu::check).
+Hash of checks for use with create_resources(sensuclassic::check).
 Example value: { 'check-cpu' => { 'command' => 'check-cpu.rb' } }
 
 Default value: {}
@@ -952,7 +952,7 @@ Default value: {}
 
 Data type: `Hash`
 
-Hash of filters for use with create_resources(sensu::filter).
+Hash of filters for use with create_resources(sensuclassic::filter).
 Example value: { 'occurrence' => { 'attributes' => { 'occurrences' => '1' } } }
 
 Default value: {}
@@ -1007,7 +1007,7 @@ Data type: `Optional[String]`
 If specified, override the behavior of computing the
 package source URL from windows_repo_prefix and os major release fact.
 This parameter is intended to allow the end user to override the source URL
-used to install the Windows package.  For example:
+used to install the Windows package. For example:
 `"https://repositories.sensuapp.org/msi/2012r2/sensu-0.29.0-11-x64.msi"`
 
 Default value: `undef`
@@ -1039,7 +1039,7 @@ Data type: `String`
 
 The package name used to identify the package
 filename. Defaults to `'sensu'` which matches the MSI filename published at
-`https://repositories.sensuapp.org/msi`.  Note, this is distinct from the
+`https://repositories.sensuapp.org/msi`. Note, this is distinct from the
 windows_package_title, which is used to identify the package name as
 displayed in Add/Remove programs in Windows.
 
@@ -1050,7 +1050,7 @@ Default value: 'Sensu'
 Data type: `String`
 
 The package name used to identify the package as
-listed in Add/Remove programs.  Note this is distinct from the package
+listed in Add/Remove programs. Note this is distinct from the package
 filename identifier specified with windows_package_name.
 
 Default value: 'sensu'
@@ -1307,37 +1307,13 @@ Data type: `Hash`
 
 Default value: {}
 
-### sensu::api
+### sensuclassic::api
 
-= Class: sensu::api
-
-Manages the Sensu api
-
-== Parameters
-
-[*hasrestart*]
-  Boolean. Value of hasrestart attribute for this service.
-  Default: true
+Manages the Sensu API
 
 #### Parameters
 
-The following parameters are available in the `sensu::api` class.
-
-##### `hasrestart`
-
-Data type: `Boolean`
-
-
-
-Default value: $::sensu::hasrestart
-
-### sensu::client
-
-Manages the Sensu client service
-
-#### Parameters
-
-The following parameters are available in the `sensu::client` class.
+The following parameters are available in the `sensuclassic::api` class.
 
 ##### `hasrestart`
 
@@ -1345,40 +1321,59 @@ Data type: `Boolean`
 
 Value of hasrestart attribute for this service.
 
-Default value: $::sensu::hasrestart
+Default value: $sensuclassic::hasrestart
+
+### sensuclassic::client
+
+Manages the Sensu client service
+
+#### Parameters
+
+The following parameters are available in the `sensuclassic::client` class.
+
+##### `hasrestart`
+
+Data type: `Boolean`
+
+Value of hasrestart attribute for this service.
+
+Default value: $sensuclassic::hasrestart
 
 ##### `log_level`
 
 Data type: `Any`
 
-Sensu log level to be used
-Valid values: debug, info, warn, error, fatal
+Sensu log level to be used Valid values: debug, info, warn,
+error, fatal
 
-Default value: $::sensu::log_level
+Default value: $sensuclassic::log_level
 
 ##### `windows_logrotate`
 
 Data type: `Any`
 
-Whether or not to use logrotate on Windows OS family.
+Whether or not to use logrotate on Windows OS
+family.
 
-Default value: $::sensu::windows_logrotate
+Default value: $sensuclassic::windows_logrotate
 
 ##### `windows_log_size`
 
 Data type: `Any`
 
-The integer value for the size of log files on Windows OS family. sizeThreshold in sensu-client.xml.
+The integer value for the size of log files on
+Windows OS family. sizeThreshold in sensu-client.xml.
 
-Default value: $::sensu::windows_log_size
+Default value: $sensuclassic::windows_log_size
 
 ##### `windows_log_number`
 
 Data type: `Any`
 
-The integer value for the number of log files to keep on Windows OS family. keepFiles in sensu-client.xml.
+The integer value for the number of log files to
+keep on Windows OS family. keepFiles in sensu-client.xml.
 
-Default value: $::sensu::windows_log_number
+Default value: $sensuclassic::windows_log_number
 
 ##### `client_service_enable`
 
@@ -1386,7 +1381,7 @@ Data type: `Any`
 
 
 
-Default value: $::sensu::client_service_enable
+Default value: $sensuclassic::client_service_enable
 
 ##### `client_service_ensure`
 
@@ -1394,15 +1389,15 @@ Data type: `Any`
 
 
 
-Default value: $::sensu::client_service_ensure
+Default value: $sensuclassic::client_service_ensure
 
-### sensu::enterprise
+### sensuclassic::enterprise
 
 Installs Sensu enterprise
 
 #### Parameters
 
-The following parameters are available in the `sensu::enterprise` class.
+The following parameters are available in the `sensuclassic::enterprise` class.
 
 ##### `deregister_handler`
 
@@ -1410,7 +1405,7 @@ Data type: `Optional[String]`
 
 The handler to use when deregistering a client on stop.
 
-Default value: $::sensu::deregister_handler
+Default value: $sensuclassic::deregister_handler
 
 ##### `deregister_on_stop`
 
@@ -1418,7 +1413,7 @@ Data type: `Optional[Boolean]`
 
 Whether the sensu client should deregister from the API on service stop
 
-Default value: $::sensu::deregister_on_stop
+Default value: $sensuclassic::deregister_on_stop
 
 ##### `gem_path`
 
@@ -1426,7 +1421,7 @@ Data type: `Optional[String]`
 
 Paths to add to GEM_PATH if we need to look for different dirs.
 
-Default value: $::sensu::gem_path
+Default value: $sensuclassic::gem_path
 
 ##### `init_stop_max_wait`
 
@@ -1434,7 +1429,7 @@ Data type: `Variant[Undef,Integer,Pattern[/^(\d+)$/]]`
 
 Number of seconds to wait for the init stop script to run
 
-Default value: $::sensu::init_stop_max_wait
+Default value: $sensuclassic::init_stop_max_wait
 
 ##### `log_dir`
 
@@ -1443,7 +1438,7 @@ Data type: `Optional[String]`
 Sensu log directory to be used
 Valid values: Any valid log directory path, accessible by the sensu user
 
-Default value: $::sensu::log_dir
+Default value: $sensuclassic::log_dir
 
 ##### `log_level`
 
@@ -1452,7 +1447,7 @@ Data type: `Optional[String]`
 Sensu log level to be used
 Valid values: debug, info, warn, error, fatal
 
-Default value: $::sensu::log_level
+Default value: $sensuclassic::log_level
 
 ##### `path`
 
@@ -1460,7 +1455,7 @@ Data type: `Optional[String]`
 
 Used to set PATH in /etc/default/sensu
 
-Default value: $::sensu::path
+Default value: $sensuclassic::path
 
 ##### `rubyopt`
 
@@ -1468,19 +1463,19 @@ Data type: `Optional[String]`
 
 Ruby opts to be passed to the sensu services
 
-Default value: $::sensu::rubyopt
+Default value: $sensuclassic::rubyopt
 
 ##### `use_embedded_ruby`
 
 Data type: `Optional[Boolean]`
 
 If the embedded ruby should be used, e.g. to install the
-sensu-plugin gem.  This value is overridden by a defined
-sensu_plugin_provider.  Note, the embedded ruby should always be used to
-provide full compatibility.  Using other ruby runtimes, e.g. the system
+sensu-plugin gem. This value is overridden by a defined
+sensu_plugin_provider. Note, the embedded ruby should always be used to
+provide full compatibility. Using other ruby runtimes, e.g. the system
 ruby, is not recommended.
 
-Default value: $::sensu::use_embedded_ruby
+Default value: $sensuclassic::use_embedded_ruby
 
 ##### `heap_size`
 
@@ -1488,7 +1483,7 @@ Data type: `Variant[Undef,Integer,Pattern[/^(\d+)/]]`
 
 Value of the HEAP_SIZE environment variable.
 
-Default value: $::sensu::heap_size
+Default value: $sensuclassic::heap_size
 
 ##### `max_open_files`
 
@@ -1496,7 +1491,7 @@ Data type: `Variant[Undef,Integer,Pattern[/^(\d+)$/]]`
 
 Value of the MAX_OPEN_FILES environment variable.
 
-Default value: $::sensu::max_open_files
+Default value: $sensuclassic::max_open_files
 
 ##### `heap_dump_path`
 
@@ -1504,7 +1499,7 @@ Data type: `Variant[Undef,String]`
 
 Value of the HEAP_DUMP_PATH environment variable.
 
-Default value: $::sensu::heap_dump_path
+Default value: $sensuclassic::heap_dump_path
 
 ##### `java_opts`
 
@@ -1512,7 +1507,7 @@ Data type: `Variant[Undef,String]`
 
 Value of the JAVA_OPTS environment variable.
 
-Default value: $::sensu::java_opts
+Default value: $sensuclassic::java_opts
 
 ##### `hasrestart`
 
@@ -1520,15 +1515,15 @@ Data type: `Boolean`
 
 
 
-Default value: $::sensu::hasrestart
+Default value: $sensuclassic::hasrestart
 
-### sensu::enterprise::dashboard
+### sensuclassic::enterprise::dashboard
 
 Installs the Sensu Enterprise Dashboard
 
 #### Parameters
 
-The following parameters are available in the `sensu::enterprise::dashboard` class.
+The following parameters are available in the `sensuclassic::enterprise::dashboard` class.
 
 ##### `hasrestart`
 
@@ -1536,15 +1531,15 @@ Data type: `Boolean`
 
 
 
-Default value: $::sensu::hasrestart
+Default value: $sensuclassic::hasrestart
 
-### sensu::package
+### sensuclassic::package
 
 Installs the Sensu packages
 
 #### Parameters
 
-The following parameters are available in the `sensu::package` class.
+The following parameters are available in the `sensuclassic::package` class.
 
 ##### `conf_dir`
 
@@ -1552,7 +1547,7 @@ Data type: `Optional[String]`
 
 The default configuration directory.
 
-Default value: $::sensu::conf_dir
+Default value: $sensuclassic::conf_dir
 
 ##### `confd_dir`
 
@@ -1561,7 +1556,7 @@ Data type: `Variant[String,Array,Undef]`
 Additional directories to load configuration
 snippets from.
 
-Default value: $::sensu::confd_dir
+Default value: $sensuclassic::confd_dir
 
 ##### `heap_size`
 
@@ -1570,7 +1565,7 @@ Data type: `Variant[Undef,Integer,Pattern[/^(\d+)/]]`
 Value of the HEAP_SIZE environment variable.
 Note: This has no effect on sensu-core.
 
-Default value: $::sensu::heap_size
+Default value: $sensuclassic::heap_size
 
 ##### `config_file`
 
@@ -1578,7 +1573,7 @@ Data type: `Variant[Stdlib::Absolutepath,Undef]`
 
 Value of the CONFIG_FILE environment variable.
 
-Default value: $::sensu::config_file
+Default value: $sensuclassic::config_file
 
 ##### `deregister_handler`
 
@@ -1586,7 +1581,7 @@ Data type: `Optional[String]`
 
 The handler to use when deregistering a client on stop.
 
-Default value: $::sensu::deregister_handler
+Default value: $sensuclassic::deregister_handler
 
 ##### `deregister_on_stop`
 
@@ -1594,7 +1589,7 @@ Data type: `Optional[Boolean]`
 
 Whether the sensu client should deregister from the API on service stop
 
-Default value: $::sensu::deregister_on_stop
+Default value: $sensuclassic::deregister_on_stop
 
 ##### `gem_path`
 
@@ -1602,7 +1597,7 @@ Data type: `Optional[String]`
 
 Paths to add to GEM_PATH if we need to look for different dirs.
 
-Default value: $::sensu::gem_path
+Default value: $sensuclassic::gem_path
 
 ##### `init_stop_max_wait`
 
@@ -1610,7 +1605,7 @@ Data type: `Variant[Undef,Integer,Pattern[/^(\d+)$/]]`
 
 Number of seconds to wait for the init stop script to run
 
-Default value: $::sensu::init_stop_max_wait
+Default value: $sensuclassic::init_stop_max_wait
 
 ##### `log_dir`
 
@@ -1619,7 +1614,7 @@ Data type: `Optional[String]`
 Sensu log directory to be used
 Valid values: Any valid log directory path, accessible by the sensu user
 
-Default value: $::sensu::log_dir
+Default value: $sensuclassic::log_dir
 
 ##### `log_level`
 
@@ -1628,7 +1623,7 @@ Data type: `Optional[String]`
 Sensu log level to be used
 Valid values: debug, info, warn, error, fatal
 
-Default value: $::sensu::log_level
+Default value: $sensuclassic::log_level
 
 ##### `path`
 
@@ -1636,7 +1631,7 @@ Data type: `Optional[String]`
 
 Used to set PATH in /etc/default/sensu
 
-Default value: $::sensu::path
+Default value: $sensuclassic::path
 
 ##### `env_vars`
 
@@ -1644,7 +1639,7 @@ Data type: `Optional[Hash[String[1], Variant[String, Boolean, Integer]]]`
 
 Additional environment variables for /etc/default/sensu
 
-Default value: $::sensu::env_vars
+Default value: $sensuclassic::env_vars
 
 ##### `rubyopt`
 
@@ -1652,43 +1647,43 @@ Data type: `Optional[String]`
 
 Ruby opts to be passed to the sensu services
 
-Default value: $::sensu::rubyopt
+Default value: $sensuclassic::rubyopt
 
 ##### `use_embedded_ruby`
 
 Data type: `Optional[Boolean]`
 
 If the embedded ruby should be used, e.g. to install the
-sensu-plugin gem.  This value is overridden by a defined
-sensu_plugin_provider.  Note, the embedded ruby should always be used to
-provide full compatibility.  Using other ruby runtimes, e.g. the system
+sensu-plugin gem. This value is overridden by a defined
+sensu_plugin_provider. Note, the embedded ruby should always be used to
+provide full compatibility. Using other ruby runtimes, e.g. the system
 ruby, is not recommended.
 
-Default value: $::sensu::use_embedded_ruby
+Default value: $sensuclassic::use_embedded_ruby
 
-### sensu::rabbitmq::config
+### sensuclassic::rabbitmq::config
 
 Sets the Sensu rabbitmq config
 
-### sensu::redis::config
+### sensuclassic::redis::config
 
 Sets the Sensu redis config
 
-### sensu::repo::apt
+### sensuclassic::repo::apt
 
 Adds the Sensu repo to Apt
 
-### sensu::repo::yum
+### sensuclassic::repo::yum
 
 Adds the Sensu YUM repo support
 
-### sensu::server::service
+### sensuclassic::server::service
 
 Manages the Sensu server service
 
 #### Parameters
 
-The following parameters are available in the `sensu::server::service` class.
+The following parameters are available in the `sensuclassic::server::service` class.
 
 ##### `hasrestart`
 
@@ -1696,7 +1691,7 @@ Data type: `Boolean`
 
 Value of hasrestart attribute for this service.
 
-Default value: $::sensu::hasrestart
+Default value: $sensuclassic::hasrestart
 
 ##### `server_service_enable`
 
@@ -1704,7 +1699,7 @@ Data type: `Any`
 
 
 
-Default value: $::sensu::server_service_enable
+Default value: $sensuclassic::server_service_enable
 
 ##### `server_service_ensure`
 
@@ -1712,25 +1707,25 @@ Data type: `Any`
 
 
 
-Default value: $::sensu::server_service_ensure
+Default value: $sensuclassic::server_service_ensure
 
-### sensu::transport
+### sensuclassic::transport
 
 Configure Sensu Transport
 
 ## Defined types
 
-### sensu::check
+### sensuclassic::check
 
 This define manages Sensu checks
 
 [Hooks](https://sensuapp.org/docs/latest/reference/checks.html#hooks-attributes)
-  Since Sensu 1.1.0.  Manages hooks for a check. See the documentation for the format
+  Since Sensu 1.1.0. Manages hooks for a check. See the documentation for the format
   of the Hash value.
 
 #### Parameters
 
-The following parameters are available in the `sensu::check` defined type.
+The following parameters are available in the `sensuclassic::check` defined type.
 
 ##### `command`
 
@@ -1771,7 +1766,7 @@ Default value: `undef`
 Data type: `Variant[Undef,String,Array]`
 
 Array of Strings. Contacts to use for the contact-routing
-Sensu Enterprise feature.  This value corresponds with a sensu::contact
+Sensu Enterprise feature. This value corresponds with a sensuclassic::contact
 resource having the same name.
 
 Default value: `undef`
@@ -1791,7 +1786,7 @@ Data type: `String`
 
 When the check should be executed, using the [Cron
 syntax](https://en.wikipedia.org/wiki/Cron#CRON_expression). Supersedes the
-`interval` parameter.  Example: `"0 0 * * *"`.
+`interval` parameter. Example: `"0 0 * * *"`.
 
 Default value: 'absent'
 
@@ -1925,7 +1920,7 @@ Default value: `undef`
 Data type: `Hash`
 
 Mapping of arbitrary attributes from the top-level of the target
-configuration JSON map.  This parameter is intended to configure plugins and
+configuration JSON map. This parameter is intended to configure plugins and
 extensions which look up values outside of the check configuration scope.
 Example: { "mailer" => { "mail_from" => "sensu@example.com", "mail_to" => "monitor@example.com" } }
 
@@ -1982,8 +1977,8 @@ Default value: `undef`
 Data type: `Variant[Undef,Enum['absent'],Hash]`
 
 Manages [Proxy Check Requests](https://sensuapp.org/docs/latest/reference/checks.html#proxy-requests-attributes)
-Since Sensu 0.28.0.  Publishes a check request to every Sensu client which
-matches the defined client attributes.  See the documentation for the format
+Since Sensu 0.28.0. Publishes a check request to every Sensu client which
+matches the defined client attributes. See the documentation for the format
 of the Hash value.
 
 Default value: `undef`
@@ -1996,20 +1991,20 @@ Manages
 
 Default value: `undef`
 
-### sensu::config
+### sensuclassic::config
 
  This define manages Sensu check configurations.
 
 #### Parameters
 
-The following parameters are available in the `sensu::config` defined type.
+The following parameters are available in the `sensuclassic::config` defined type.
 
 ##### `ensure`
 
 Data type: `Enum['present','absent']`
 
-Whether the check should be present or not
-Valid values: present, absent
+Whether the check should be present or not Valid values:
+present, absent
 
 Default value: 'present'
 
@@ -2029,7 +2024,7 @@ Configuration to send with the event to handlers
 
 Default value: `undef`
 
-### sensu::contact
+### sensuclassic::contact
 
 Manage [Contact
 Routing](https://sensuapp.org/docs/latest/enterprise/contact-routing.html)
@@ -2040,13 +2035,13 @@ sensu::contact resources located in /etc/sensu/conf.d/contacts will be purged.
 
 #### Parameters
 
-The following parameters are available in the `sensu::contact` defined type.
+The following parameters are available in the `sensuclassic::contact` defined type.
 
 ##### `ensure`
 
 Data type: `Enum['present','absent']`
 
-Whether the check should be present or not
+Whether the check should be present or not.
 
 Default value: 'present'
 
@@ -2054,8 +2049,8 @@ Default value: 'present'
 
 Data type: `Optional[String]`
 
-Where to place the contact JSON configuration file.  Defaults to
-`undef` which defers to the behavior of the underlying sensu_contact type.
+Where to place the contact JSON configuration file. Defaults
+to `undef` which defers to the behavior of the underlying sensuclassic_contact type.
 
 Default value: `undef`
 
@@ -2063,19 +2058,21 @@ Default value: `undef`
 
 Data type: `Hash`
 
-The configuration data for the contact.  This is an arbitrary hash to
+The configuration data for the contact. This is an arbitrary hash to
 accommodate the various communication channels. For example, `{ "email": {
 "to": "support@example.com" } }`.
 
 Default value: {}
 
-### sensu::enterprise::dashboard::api
+### sensuclassic::enterprise::dashboard::api
 
 Manages the Sensu Enterprise API configuration
 
+not mounted to /.
+
 #### Parameters
 
-The following parameters are available in the `sensu::enterprise::dashboard::api` defined type.
+The following parameters are available in the `sensuclassic::enterprise::dashboard::api` defined type.
 
 ##### `host`
 
@@ -2135,7 +2132,7 @@ Default value: `undef`
 
 Data type: `Optional[String]`
 
-The path of the Sensu API. Leave empty unless your Sensu API is not mounted to /.
+The path of the Sensu API. Leave empty unless your Sensu API is
 
 Default value: `undef`
 
@@ -2163,13 +2160,13 @@ The password of the Sensu API. Leave empty for no authentication.
 
 Default value: `undef`
 
-### sensu::extension
+### sensuclassic::extension
 
 This define manages Sensu extensions
 
 #### Parameters
 
-The following parameters are available in the `sensu::extension` defined type.
+The following parameters are available in the `sensuclassic::extension` defined type.
 
 ##### `ensure`
 
@@ -2203,15 +2200,13 @@ Extension specific config
 
 Default value: {}
 
-### sensu::filter
+### sensuclassic::filter
 
 Defines Sensu filters
 
-== Parameters
-
 #### Parameters
 
-The following parameters are available in the `sensu::filter` defined type.
+The following parameters are available in the `sensuclassic::filter` defined type.
 
 ##### `ensure`
 
@@ -2245,13 +2240,13 @@ Hash of when entries for the filter
 
 Default value: `undef`
 
-### sensu::handler
+### sensuclassic::handler
 
 Defines Sensu handlers
 
 #### Parameters
 
-The following parameters are available in the `sensu::handler` defined type.
+The following parameters are available in the `sensuclassic::handler` defined type.
 
 ##### `ensure`
 
@@ -2394,13 +2389,13 @@ Valid values: Any kind of data which can be added to the handler subdue.
 
 Default value: `undef`
 
-### sensu::mutator
+### sensuclassic::mutator
 
 This define manages Sense mutators
 
 #### Parameters
 
-The following parameters are available in the `sensu::mutator` defined type.
+The following parameters are available in the `sensuclassic::mutator` defined type.
 
 ##### `ensure`
 
@@ -2440,14 +2435,14 @@ Path to install the mutator
 
 Default value: '/etc/sensu/mutators'
 
-### sensu::plugin
+### sensuclassic::plugin
 
 Installs the Sensu community script and plugins
 which can be used as monitoring checks
 
 #### Parameters
 
-The following parameters are available in the `sensu::plugin` defined type.
+The following parameters are available in the `sensuclassic::plugin` defined type.
 
 ##### `type`
 
@@ -2503,9 +2498,9 @@ Default value: 'latest'
 Data type: `Optional[String]`
 
 When using package to install plugins, provider to use.
-Valid values: sensu_gem, apt, aptitude, yum
+Valid values: sensuclassic_gem, apt, aptitude, yum
 
-Default value: $::sensu::sensu_plugin_provider
+Default value: $sensuclassic::sensu_plugin_provider
 
 ##### `pkg_checksum`
 
@@ -2529,19 +2524,19 @@ Default value: `false`
 Data type: `Any`
 
 Optional configuration to use for the installation of the
-sensu plugin gem with sensu_gem provider.
+sensu plugin gem with sensuclassic_gem provider.
 See: https://docs.puppetlabs.com/references/latest/type.html#package-attribute-install_options
 Example value: [{ '-p' => 'http://user:pass@myproxy.company.org:8080' }]
 
-Default value: $::sensu::gem_install_options
+Default value: $sensuclassic::gem_install_options
 
-### sensu::plugins_dir
+### sensuclassic::plugins_dir
 
 This define verifies if install_dir exists without duplicate declarations
 
 #### Parameters
 
-The following parameters are available in the `sensu::plugins_dir` defined type.
+The following parameters are available in the `sensuclassic::plugins_dir` defined type.
 
 ##### `force`
 
@@ -2568,17 +2563,18 @@ managed directory.
 
 Data type: `String`
 
-Path of the directory to create. If not defined the $title is used
+Path of the directory to create. If not defined the $title is
+used.
 
 Default value: $name
 
-### sensu::subscription
+### sensuclassic::subscription
 
 This define manages Sensu subscriptions
 
 #### Parameters
 
-The following parameters are available in the `sensu::subscription` defined type.
+The following parameters are available in the `sensuclassic::subscription` defined type.
 
 ##### `ensure`
 
@@ -2596,22 +2592,17 @@ Custom client variables
 
 Default value: {}
 
-### sensu::write_json
+### sensuclassic::write_json
 
 Writes arbitrary hash data to a config file. Note: you must manually notify
 any Sensu services to restart them when using this defined resource type.
-
-[*notify_list*]
-  Array. A listing of resources to notify upon changes to the target JSON
-         file.
-  Default: []
 
 #### Examples
 
 ##### 
 
 ```puppet
-sensu::write_json { '/etc/sensu/conf.d/check.json':
+sensuclassic::write_json { '/etc/sensu/conf.d/check.json':
   content => {"config" => {"key" => "value"}},
   notify  => [
     Service['sensu-client'],
@@ -2622,7 +2613,7 @@ sensu::write_json { '/etc/sensu/conf.d/check.json':
 
 #### Parameters
 
-The following parameters are available in the `sensu::write_json` defined type.
+The following parameters are available in the `sensuclassic::write_json` defined type.
 
 ##### `ensure`
 
@@ -2668,8 +2659,8 @@ Default value: `true`
 
 Data type: `Hash`
 
-The hash content that will be converted to json
-and written into the target config file.
+The hash content that will be converted to json and written
+into the target config file.
 
 Default value: {}
 
@@ -2677,19 +2668,19 @@ Default value: {}
 
 Data type: `Array[Variant[Data,Type]]`
 
-
+Array of resources to notify upon changes to the target JSON file.
 
 Default value: []
 
 ## Resource types
 
-### sensu_api_config
+### sensuclassic_api_config
 
 Manages Sensu API config
 
 #### Properties
 
-The following properties are available in the `sensu_api_config` type.
+The following properties are available in the `sensuclassic_api_config` type.
 
 ##### `ensure`
 
@@ -2739,7 +2730,7 @@ The SSL certificate keystore password. Enterprise only feature.
 
 #### Parameters
 
-The following parameters are available in the `sensu_api_config` type.
+The following parameters are available in the `sensuclassic_api_config` type.
 
 ##### `name`
 
@@ -2753,13 +2744,13 @@ The base path to the client config file
 
 Default value: /etc/sensu/conf.d/
 
-### sensu_check
+### sensuclassic_check
 
 Manages Sensu checks
 
 #### Properties
 
-The following properties are available in the `sensu_check` type.
+The following properties are available in the `sensuclassic_check` type.
 
 ##### `ensure`
 
@@ -2913,7 +2904,7 @@ Exit code for ttl
 
 #### Parameters
 
-The following parameters are available in the `sensu_check` type.
+The following parameters are available in the `sensuclassic_check` type.
 
 ##### `name`
 
@@ -2927,13 +2918,13 @@ The base path to the client config file
 
 Default value: /etc/sensu/conf.d/checks
 
-### sensu_check_config
+### sensuclassic_check_config
 
 ""
 
 #### Properties
 
-The following properties are available in the `sensu_check_config` type.
+The following properties are available in the `sensuclassic_check_config` type.
 
 ##### `ensure`
 
@@ -2945,7 +2936,7 @@ Default value: present
 
 #### Parameters
 
-The following parameters are available in the `sensu_check_config` type.
+The following parameters are available in the `sensuclassic_check_config` type.
 
 ##### `name`
 
@@ -2983,13 +2974,13 @@ Check configuration for the client to use
 
 Configuration to send with the event to handlers
 
-### sensu_client_config
+### sensuclassic_client_config
 
 Manages Sensu client config
 
 #### Properties
 
-The following properties are available in the `sensu_client_config` type.
+The following properties are available in the `sensuclassic_client_config` type.
 
 ##### `ensure`
 
@@ -3075,7 +3066,7 @@ Configure Puppet integration on Sensu client.
 
 #### Parameters
 
-The following parameters are available in the `sensu_client_config` type.
+The following parameters are available in the `sensuclassic_client_config` type.
 
 ##### `name`
 
@@ -3089,13 +3080,13 @@ The base path to the client config file
 
 Default value: /etc/sensu/conf.d/
 
-### sensu_client_subscription
+### sensuclassic_client_subscription
 
 Manages Sensu client subscriptions
 
 #### Properties
 
-The following properties are available in the `sensu_client_subscription` type.
+The following properties are available in the `sensuclassic_client_subscription` type.
 
 ##### `ensure`
 
@@ -3115,7 +3106,7 @@ Custom client variables
 
 #### Parameters
 
-The following parameters are available in the `sensu_client_subscription` type.
+The following parameters are available in the `sensuclassic_client_subscription` type.
 
 ##### `name`
 
@@ -3133,13 +3124,13 @@ Default value: /etc/sensu/conf.d/
 
 The name of the client config file
 
-### sensu_contact
+### sensuclassic_contact
 
 Manages Sensu contacts
 
 #### Properties
 
-The following properties are available in the `sensu_contact` type.
+The following properties are available in the `sensuclassic_contact` type.
 
 ##### `ensure`
 
@@ -3155,7 +3146,7 @@ Configuration hash for the contact.
 
 #### Parameters
 
-The following parameters are available in the `sensu_contact` type.
+The following parameters are available in the `sensuclassic_contact` type.
 
 ##### `name`
 
@@ -3171,13 +3162,13 @@ The base path to the contact config file
 
 Default value: /etc/sensu/conf.d/contacts/
 
-### sensu_enterprise_dashboard_api_config
+### sensuclassic_enterprise_dashboard_api_config
 
 Manages Sensu Enterprise Dashboard API config
 
 #### Properties
 
-The following properties are available in the `sensu_enterprise_dashboard_api_config` type.
+The following properties are available in the `sensuclassic_enterprise_dashboard_api_config` type.
 
 ##### `ensure`
 
@@ -3237,7 +3228,7 @@ The password of the Sensu API. Leave empty for no authentication.
 
 #### Parameters
 
-The following parameters are available in the `sensu_enterprise_dashboard_api_config` type.
+The following parameters are available in the `sensuclassic_enterprise_dashboard_api_config` type.
 
 ##### `host`
 
@@ -3251,13 +3242,13 @@ The base path to the client config file
 
 Default value: /etc/sensu/
 
-### sensu_enterprise_dashboard_config
+### sensuclassic_enterprise_dashboard_config
 
 Manages Sensu Enterprise Dashboard config
 
 #### Properties
 
-The following properties are available in the `sensu_enterprise_dashboard_config` type.
+The following properties are available in the `sensuclassic_enterprise_dashboard_config` type.
 
 ##### `ensure`
 
@@ -3327,7 +3318,7 @@ Custom config variables
 
 #### Parameters
 
-The following parameters are available in the `sensu_enterprise_dashboard_config` type.
+The following parameters are available in the `sensuclassic_enterprise_dashboard_config` type.
 
 ##### `name`
 
@@ -3341,13 +3332,13 @@ The base path to the client config file
 
 Default value: /etc/sensu/
 
-### sensu_extension
+### sensuclassic_extension
 
 Manages Sensu extensions
 
 #### Properties
 
-The following properties are available in the `sensu_extension` type.
+The following properties are available in the `sensuclassic_extension` type.
 
 ##### `ensure`
 
@@ -3363,7 +3354,7 @@ The configuration for this extension
 
 #### Parameters
 
-The following parameters are available in the `sensu_extension` type.
+The following parameters are available in the `sensuclassic_extension` type.
 
 ##### `name`
 
@@ -3377,13 +3368,13 @@ The base path to the client config file
 
 Default value: /etc/sensu/conf.d/extensions/
 
-### sensu_filter
+### sensuclassic_filter
 
 Manages Sensu filters
 
 #### Properties
 
-The following properties are available in the `sensu_filter` type.
+The following properties are available in the `sensuclassic_filter` type.
 
 ##### `ensure`
 
@@ -3409,7 +3400,7 @@ Default value: false
 
 #### Parameters
 
-The following parameters are available in the `sensu_filter` type.
+The following parameters are available in the `sensuclassic_filter` type.
 
 ##### `name`
 
@@ -3423,13 +3414,13 @@ The base path to the client config file
 
 Default value: /etc/sensu/conf.d/filters/
 
-### sensu_handler
+### sensuclassic_handler
 
 Manages Sensu handlers
 
 #### Properties
 
-The following properties are available in the `sensu_handler` type.
+The following properties are available in the `sensuclassic_handler` type.
 
 ##### `ensure`
 
@@ -3493,7 +3484,7 @@ If events in the silenced state should be handled
 
 #### Parameters
 
-The following parameters are available in the `sensu_handler` type.
+The following parameters are available in the `sensuclassic_handler` type.
 
 ##### `name`
 
@@ -3507,13 +3498,13 @@ The base path to the client config file
 
 Default value: /etc/sensu/conf.d/handlers/
 
-### sensu_mutator
+### sensuclassic_mutator
 
 Manages Sensu mutators
 
 #### Properties
 
-The following properties are available in the `sensu_mutator` type.
+The following properties are available in the `sensuclassic_mutator` type.
 
 ##### `ensure`
 
@@ -3533,7 +3524,7 @@ The mutator execution duration timeout in seconds (hard stop).
 
 #### Parameters
 
-The following parameters are available in the `sensu_mutator` type.
+The following parameters are available in the `sensuclassic_mutator` type.
 
 ##### `name`
 
@@ -3547,13 +3538,13 @@ The base path to the client config file
 
 Default value: /etc/sensu/conf.d/mutators/
 
-### sensu_rabbitmq_config
+### sensuclassic_rabbitmq_config
 
 Manages Sensu RabbitMQ config
 
 #### Properties
 
-The following properties are available in the `sensu_rabbitmq_config` type.
+The following properties are available in the `sensuclassic_rabbitmq_config` type.
 
 ##### `ensure`
 
@@ -3615,7 +3606,7 @@ Rabbitmq Cluster
 
 #### Parameters
 
-The following parameters are available in the `sensu_rabbitmq_config` type.
+The following parameters are available in the `sensuclassic_rabbitmq_config` type.
 
 ##### `name`
 
@@ -3629,13 +3620,13 @@ The base path to the client config file
 
 Default value: /etc/sensu/conf.d/
 
-### sensu_redis_config
+### sensuclassic_redis_config
 
 Manages Sensu Redis config
 
 #### Properties
 
-The following properties are available in the `sensu_redis_config` type.
+The following properties are available in the `sensuclassic_redis_config` type.
 
 ##### `ensure`
 
@@ -3697,7 +3688,7 @@ Default value: absent
 
 #### Parameters
 
-The following parameters are available in the `sensu_redis_config` type.
+The following parameters are available in the `sensuclassic_redis_config` type.
 
 ##### `name`
 
@@ -3713,7 +3704,7 @@ Default value: /etc/sensu/conf.d/
 
 ## Functions
 
-### sensu_sorted_json
+### sensuclassic_sorted_json
 
 Type: Ruby 4.x API
 
@@ -3721,7 +3712,7 @@ This function takes unsorted hash and outputs JSON object making sure the keys a
 Optionally you can pass a boolean as the second parameter, which controls if
 the output is pretty formatted.
 
-#### `sensu_sorted_json(Hash $hash, Optional[Boolean] $pretty)`
+#### `sensuclassic_sorted_json(Hash $hash, Optional[Boolean] $pretty)`
 
 This function takes unsorted hash and outputs JSON object making sure the keys are sorted.
 Optionally you can pass a boolean as the second parameter, which controls if

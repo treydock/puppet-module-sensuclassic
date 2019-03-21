@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# This script will verify that plugins installed with the "sensu_gem" package
+# This script will verify that plugins installed with the "sensuclassic_gem" package
 # provider are installed AFTER any sensu package changes.
 #
 # USAGE:
@@ -30,20 +30,20 @@ $deregistration = { 'handler' => 'deregister_client' }
 
 package { 'redphone':
   ensure   => 'installed',
-  provider => sensu_gem,
+  provider => sensuclassic_gem,
 }
 
 package { 'sensu-plugins-nginx':
   ensure   => 'installed',
-  provider => sensu_gem,
+  provider => sensuclassic_gem,
 }
 
 package { 'sensu-plugins-disk-checks':
   ensure   => 'installed',
-  provider => sensu_gem,
+  provider => sensuclassic_gem,
 }
 
-class { '::sensu':
+class { '::sensuclassic':
   install_repo          => true,
   version               => 'latest',
   server                => true,
@@ -69,20 +69,20 @@ $deregistration = { 'handler' => 'deregister_client' }
 
 package { 'redphone':
   ensure   => 'installed',
-  provider => sensu_gem,
+  provider => sensuclassic_gem,
 }
 
 package { 'sensu-plugins-nginx':
   ensure   => 'installed',
-  provider => sensu_gem,
+  provider => sensuclassic_gem,
 }
 
 package { 'sensu-plugins-disk-checks':
   ensure   => 'installed',
-  provider => sensu_gem,
+  provider => sensuclassic_gem,
 }
 
-class { '::sensu':
+class { '::sensuclassic':
   install_repo          => true,
   version               => '0.23.0',
   server                => true,
