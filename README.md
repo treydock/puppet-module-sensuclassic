@@ -16,7 +16,7 @@ major release of Puppet and the prior major release.
 
 ## Documented with Puppet Strings
 
-[Puppet Strings documentation](http://sensu.github.io/puppet-module-sensuclassic/doc/)
+[Puppet Strings documentation](http://sensu.github.io/puppet-module-sensuclassic/)
 
 ## Compatibility - supported sensu versions
 
