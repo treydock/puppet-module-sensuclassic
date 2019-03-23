@@ -94,7 +94,11 @@ Puppet::Type.newtype(:sensuclassic_client_config) do
   end
 
   newproperty(:custom) do
-    desc 'Custom client attributes'
+    desc <<-EOS
+    Custom client attributes.
+    Any key that is also set by a property of this type will be ignored
+    and should not be included in this property.
+EOS
     include PuppetX::Sensuclassic::ToType
 
     def is_to_s(hash = @is)

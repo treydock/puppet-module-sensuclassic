@@ -169,6 +169,8 @@
 # @param client_name Name of the client to report with checks
 #
 # @param client_custom Custom client variables.
+#   Any key that is used by a property of sensu_client_config
+#   will be ignored and should not be included in this parameter.
 #
 # @param client_deregister Enable the [deregistration
 #   event](https://sensuapp.org/docs/latest/reference/clients#deregistration-attributes)
