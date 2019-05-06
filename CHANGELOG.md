@@ -1,7 +1,21 @@
 # Change Log
 
-## [v3.0.0](https://github.com/sensu/puppet-module-sensuclassic/tree/v3.0.0)
+## [v3.1.0](https://github.com/sensu/puppet-module-sensuclassic/tree/v3.1.0)
 
+[Full Changelog](https://github.com/sensu/puppet-module-sensuclassic/compare/v3.0.0...v3.1.0)
+
+**Closed issues:**
+
+- Document that client custom property will filter out keys for other properties [\#8](https://github.com/sensu/puppet-module-sensuclassic/issues/8)
+
+**Merged pull requests:**
+
+- Fix Puppet Strings doc URL [\#11](https://github.com/sensu/puppet-module-sensuclassic/pull/11) ([treydock](https://github.com/treydock))
+- Update docs for client\_custom parameter and sensuclassic\_client\_config custom property [\#10](https://github.com/sensu/puppet-module-sensuclassic/pull/10) ([treydock](https://github.com/treydock))
+- Ensure presence of sensu doesn't break this module [\#9](https://github.com/sensu/puppet-module-sensuclassic/pull/9) ([treydock](https://github.com/treydock))
+- Add Windows acceptance tests [\#7](https://github.com/sensu/puppet-module-sensuclassic/pull/7) ([treydock](https://github.com/treydock))
+
+## [v3.0.0](https://github.com/sensu/puppet-module-sensuclassic/tree/v3.0.0) (2019-03-21)
 [Full Changelog](https://github.com/sensu/puppet-module-sensuclassic/compare/v2.63.0...v3.0.0)
 
 **Merged pull requests:**

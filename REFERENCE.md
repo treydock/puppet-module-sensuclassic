@@ -624,6 +624,8 @@ Default value: $::fqdn
 Data type: `Hash`
 
 Custom client variables.
+Any key that is used by a property of sensu_client_config
+will be ignored and should not be included in this parameter.
 
 Default value: {}
 
@@ -3022,7 +3024,9 @@ Default value: false
 
 ##### `custom`
 
-Custom client attributes
+Custom client attributes.
+Any key that is also set by a property of this type will be ignored
+and should not be included in this property.
 
 ##### `deregister`
 
@@ -3712,6 +3716,53 @@ This function takes unsorted hash and outputs JSON object making sure the keys a
 Optionally you can pass a boolean as the second parameter, which controls if
 the output is pretty formatted.
 
+#### Examples
+
+##### Calling function without pretty
+
+```puppet
+unsorted_hash = {
+  'client_addr' => '127.0.0.1',
+  'bind_addr'   => '192.168.34.56',
+  'start_join'  => [
+    '192.168.34.60',
+    '192.168.34.61',
+    '192.168.34.62',
+  ],
+  'ports'       => {
+    'rpc'   => 8567,
+    'https' => 8500,
+    'http'  => -1,
+  },
+}
+sorted_json(unsorted_hash)
+
+{"bind_addr":"192.168.34.56","client_addr":"127.0.0.1",
+"ports":{"http":-1,"https":8500,"rpc":8567},
+"start_join":["192.168.34.60","192.168.34.61","192.168.34.62"]}
+```
+
+##### Calling function with pretty output
+
+```puppet
+sorted_json(unsorted_hash, true)
+
+{
+    "bind_addr": "192.168.34.56",
+    "client_addr": "127.0.0.1",
+    "ports": {
+        "http": -1,
+        "https": 8500,
+        "rpc": 8567
+    },
+    "start_join": [
+        "192.168.34.60",
+        "192.168.34.61",
+        "192.168.34.62"
+    ]
+}
+```
+
 #### `sensuclassic_sorted_json(Hash $hash, Optional[Boolean] $pretty)`
 
 This function takes unsorted hash and outputs JSON object making sure the keys are sorted.
@@ -3719,6 +3770,53 @@ Optionally you can pass a boolean as the second parameter, which controls if
 the output is pretty formatted.
 
 Returns: `String` Returns a JSON string
+
+##### Examples
+
+###### Calling function without pretty
+
+```puppet
+unsorted_hash = {
+  'client_addr' => '127.0.0.1',
+  'bind_addr'   => '192.168.34.56',
+  'start_join'  => [
+    '192.168.34.60',
+    '192.168.34.61',
+    '192.168.34.62',
+  ],
+  'ports'       => {
+    'rpc'   => 8567,
+    'https' => 8500,
+    'http'  => -1,
+  },
+}
+sorted_json(unsorted_hash)
+
+{"bind_addr":"192.168.34.56","client_addr":"127.0.0.1",
+"ports":{"http":-1,"https":8500,"rpc":8567},
+"start_join":["192.168.34.60","192.168.34.61","192.168.34.62"]}
+```
+
+###### Calling function with pretty output
+
+```puppet
+sorted_json(unsorted_hash, true)
+
+{
+    "bind_addr": "192.168.34.56",
+    "client_addr": "127.0.0.1",
+    "ports": {
+        "http": -1,
+        "https": 8500,
+        "rpc": 8567
+    },
+    "start_join": [
+        "192.168.34.60",
+        "192.168.34.61",
+        "192.168.34.62"
+    ]
+}
+```
 
 ##### `hash`
 
